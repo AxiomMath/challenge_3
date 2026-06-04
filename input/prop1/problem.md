@@ -1,0 +1,1 @@
+Read `challenge3_Part1.tex`. From `challenge3_Part1.tex`, formalize and prove Lemma~\ref{lem:q-signed-count} and Lemma~\ref{lem:injection}.

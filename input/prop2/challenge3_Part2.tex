@@ -1,0 +1,201 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calX}{\mathcal{X}}
+
+
+
+\begin{document}
+
+\begin{itemize}
+\item Define
+\[
+  \sigma(n):=\sum_{d\mid n}d
+\]
+be the divisor-sum function.
+\item Define
+\[
+  S(t):=\sum_{m\geq0}\sigma(m+1)(-t)^m
+       =1-3t+4t^2-7t^3+6t^4-12t^5+\cdots.
+\]
+\item  Define coefficients $c_m$ by
+\[
+  C(t):=\sum_{m\geq0}c_m t^m:=\frac1{S(t)}.
+\]
+\item Define
+\[
+  P(t):=\frac{1+t}{1-t}=1+2t+2t^2+2t^3+\cdots
+\]
+\item Define
+\[
+  Q(t):=1-P(t)S(t)=\sum_{n\geq1}q_n t^n.
+\]
+
+\item For $m\geq1$, define $\calR_m$ be the set of triples $(a,b,i)$ such that
+\[
+  a,b\geq1,
+  \qquad ab=m,
+  \qquad 1\leq i\leq a.
+\]
+
+\item For $N\geq2$, define a finite colored set
+\[
+  \calX_N:=
+  \{(a,b,i,\varepsilon):ab\leq N,
+       \ 1\leq i\leq a,
+       \ \varepsilon\in E_N(ab)\},
+\]
+where
+\[
+  E_N(m):=
+  \begin{cases}
+    \{0,1\},&m<N,\\
+    \{0\},&m=N.
+  \end{cases}
+\]
+
+\end{itemize}
+
+
+Thus, rectangles of area $<N$ occur in two colors, and rectangles of area $N$ occur only in color $0$.  Call an object {\it positive} if its area $ab$ is even, and {\it negative} if its area is odd.  Let $\calX_N^+$ and $\calX_N^-$ denote the two parts.  The unusual coloring rule at the boundary is exactly what matches the final, un-doubled term in the coefficient computation below.
+
+\begin{lemma}\label{lem:q-signed-count}
+For $n\geq1$, with $N=n+1$, we have
+\[
+  q_n=|\calX_N^+|-|\calX_N^-|.
+\]
+\end{lemma}
+
+\begin{proof}
+Since $P(t)=1+2t+2t^2+\cdots$, we have
+\[
+  [t^n]P(t)S(t)
+  =(-1)^n\sigma(n+1)+2\sum_{m=0}^{n-1}(-1)^m\sigma(m+1).
+\]
+Putting $N=n+1$ and replacing $m+1$ by $r$ gives
+\[
+  q_n=-[t^n]P(t)S(t)
+      =(-1)^N\sigma(N)+2\sum_{r=1}^{N-1}(-1)^r\sigma(r).
+\]
+This is exactly the signed count of $\calX_N$, because each area $r<N$ has two colored copies of $\calR_r$, area $N$ has one copy, and the sign is $+1$ for even area and $-1$ for odd area.
+\end{proof}
+
+\begin{lemma}\label{lem:injection}
+For every $N\geq2$, there is an explicit injection
+\[
+  \Phi_N:\calX_N^-\hookrightarrow\calX_N^+.
+\]
+Consequently $q_n\geq0$ for every $n\geq1$.
+\end{lemma}
+
+\begin{proof}
+Let $(a,b,i,\varepsilon)\in\calX_N^-$.  Then $ab$ is odd, so $a$ and $b$ are odd.
+
+\medskip
+\noindent\textbf{Case 1: $b>1$.}
+Set
+\[
+  \Phi_N(a,b,i,\varepsilon):=(a,b-1,i,\varepsilon).
+\]
+The new width is positive and even, the new area is $a(b-1)<ab\leq N$, and both colors are allowed.
+
+\medskip
+\noindent\textbf{Case 2: $b=1$ and $a<N$.}
+Here both colors are available.  If $\varepsilon=0$, set
+\[
+  \Phi_N(a,1,i,0):=(a+1,1,i,0).
+\]
+If $\varepsilon=1$ and $i=1$, set
+\[
+  \Phi_N(a,1,1,1):=(a+1,1,a+1,0).
+\]
+If $\varepsilon=1$ and $i>1$, set
+\[
+  \Phi_N(a,1,i,1):=(a-1,1,i-1,1).
+\]
+These are positive columns with valid marked rows.  The first two have height at most $N$, and use color $0$ if the boundary is reached; the third has area $<N$, so color $1$ is allowed.
+
+\medskip
+\noindent\textbf{Case 3: $b=1$ and $a=N$.}
+This only occurs for odd $N$, and only color $0$ is available.  If $i>1$, set
+\[
+  \Phi_N(N,1,i,0):=(N-1,1,i-1,1),
+\]
+and if $i=1$, set
+\[
+  \Phi_N(N,1,1,0):=(1,N-1,1,1).
+\]
+Both images have even area $N-1<N$, so color $1$ is allowed.
+
+We now check injectivity.  Images from Case 1 are reversible by increasing the width by $1$; this recovers the original odd width and preserves the marked row and color.  The exceptional image $(1,N-1,1,1)$ from Case 3 cannot be a Case 1 image, because its only possible Case 1 preimage would be $(1,N,1,1)$, and color $1$ is forbidden at area $N$.
+
+It remains to separate the column images.  A color $0$ column of even height $e$ has a unique source: rows $1,\ldots,e-1$ come from $(e-1,1,i,0)$, while row $e$ comes from $(e-1,1,1,1)$.  A color $1$ column of even height $e<N-1$ must come from $(e+1,1,i+1,1)$.  A color $1$ column of height $N-1$ must instead come from the boundary rule $(N,1,i+1,0)$.  These alternatives are disjoint and each gives at most one preimage.  Hence no two negative objects have the same image.  Therefore $\Phi_N$ is injective, and Lemma~\ref{lem:q-signed-count} gives $q_n\geq0$.
+\end{proof}
+
+
+For $r\geq0$, let $\calP_r$ be any set with
+\[
+  |\calP_r|=
+  \begin{cases}
+    1,&r=0,\\
+    2,&r\geq1.
+  \end{cases}
+\]
+These are the $P$-objects.
+
+For $n\geq1$, put $N=n+1$ and define
+\[
+  \calQ_n:=\calX_N^+\setminus\Phi_N(\calX_N^-).
+\]
+Thus $\calQ_n$ is the set of unmatched positive row-marked rectangles after the injection.  By Lemmas~\ref{lem:q-signed-count} and~\ref{lem:injection},
+\[
+  |\calQ_n|=q_n.
+\]
+
+For $m\geq0$, let $\calW_m$ be the set of all finite assemblies
+\[
+  (U;A_1,A_2,\ldots,A_\ell)
+\]
+such that $\ell\geq0$, $U\in\calP_r$ for some $r\geq0$, each $A_j\in\calQ_{n_j}$ for some $n_j\geq1$, and
+\[
+  r+n_1+\cdots+n_\ell=m.
+\]
+The order of the $A_j$ matters.  Thus the $A_j$ form a word, not a set or multiset.
+
+\begin{proposition}\label{prop:main}
+For every $m\geq0$, we have
+\[
+  c_m=|\calW_m|.
+\]
+In particular, $c_m>0$ for all $m\geq0$.
+\end{proposition}
+
+\begin{proof}
+The $P$-objects have generating function $P(t)$, while the $Q$-objects have generating function $Q(t)$.  A finite ordered word of $Q$-objects has generating function
+\[
+  1+Q(t)+Q(t)^2+\cdots=\frac1{1-Q(t)},
+\]
+since $Q(0)=0$.  Therefore the assemblies $\calW_m$ are generated by
+\[
+  P(t)\frac1{1-Q(t)}
+  =P(t)\frac1{P(t)S(t)}
+  =\frac1{S(t)}
+  =C(t).
+\]
+Comparing coefficients gives $c_m=|\calW_m|$.
+
+The set $\calW_m$ is nonempty for every $m$: for $m=0$, take the unique object of $\calP_0$ and the empty word; for $m\geq1$, take an object of $\calP_m$ and the empty word.  Hence $c_m>0$.
+\end{proof}
+
+\end{document}
