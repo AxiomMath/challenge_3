@@ -10,7 +10,7 @@ This repository collects several formalization runs, each in its own subdirector
 (`prop1`, `prop2`):
 
 - Inputs for each run live under [`input/<run>/`](input/).
-- Lean outputs for each run live under [`Challenge_3/<run>/`](Bijection/).
+- Lean outputs for each run live under [`Challenge_3/<run>/`](Challenge_3/).
 
 ## Input files
 
