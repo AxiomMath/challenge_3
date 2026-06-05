@@ -7,7 +7,7 @@ The formal proofs provided in this work were developed and verified using **Lean
 ## Repository structure
 
 This repository collects several formalization runs, each in its own subdirectory
-(`prop1`, `prop2`):
+(`lemma-b2`, `lemma-b3`):
 
 - Inputs for each run live under [`input/<run>/`](input/).
 - Lean outputs for each run live under [`Challenge_3/<run>/`](Challenge_3/).
