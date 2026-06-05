@@ -91,6 +91,6 @@
    "inputRev": "v4.28.0",
    "inherited": true,
    "configFile": "lakefile.toml"}],
- "name": "Bijection",
+ "name": "Challenge_3",
  "lakeDir": ".lake",
  "fixedToolchain": false}
