@@ -1,0 +1,19 @@
+{
+  "challenge_module": "Challenge_3.lemma_b2.problem",
+  "solution_module": "Challenge_3.lemma_b2.solution",
+  "theorem_names": [
+    "ColoredRectangles.card_R",
+    "ColoredRectangles.disjoint_Xpos_Xneg",
+    "ColoredRectangles.Xpos_union_Xneg",
+    "ColoredRectangles.q_signed_count",
+    "ColoredRectangles.injection",
+    "ColoredRectangles.card_Xneg_le_card_Xpos",
+    "ColoredRectangles.qn_nonneg"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}

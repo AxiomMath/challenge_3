@@ -1,0 +1,20 @@
+{
+  "challenge_module": "Challenge_3.lemma_b3.problem",
+  "solution_module": "Challenge_3.lemma_b3.solution",
+  "theorem_names": [
+    "ColoredRectangles.q_signed_count",
+    "ColoredRectangles.injection",
+    "ColoredRectangles.card_Xneg_le_card_Xpos",
+    "ColoredRectangles.qn_nonneg",
+    "ColoredRectangles.Sps_mul_inv",
+    "ColoredRectangles.prop_easy",
+    "ColoredRectangles.prop_main",
+    "ColoredRectangles.cQ_pos"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "enable_nanoda": false
+}
