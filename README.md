@@ -32,7 +32,8 @@ For each part, [`input/<part>/`](input/) contains:
 This repository can be verified against the formal problem statement with the Lean comparator on a Linux machine. First, follow the instructions in [https://github.com/leanprover/comparator](https://github.com/leanprover/comparator) to install comparator. Then, run the following command:
 
 ```
-lake env comparator comparator.json
+lake env comparator comparator-lemma_b2.json
+lake env comparator comparator-lemma_b3.json
 ```
 
 ## License
